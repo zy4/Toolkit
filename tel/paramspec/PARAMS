@@ -67,3 +67,5 @@ diamond_min_aln_cov GEN diamond_min_aln_cov.prop
 plm_aln_mode GEN plm_aln_mode.prop
 span GEN span.prop
 sigma_factor GEN sigma_factor.prop
+plm_gap_ext GEN plm_gap_ext.prop
+bfactor GEN bfactor.prop

@@ -136,6 +136,8 @@ export default {
             alignment_cutoff: 'Alignment score cut-off',
             win_len: 'Window length',
             merge_hits: 'Merge hits',
+            bfactor: "Bfactor",
+            plm_gap_ext: 'Gap extension penalty',
         },
     },
     inputPlaceholder: {

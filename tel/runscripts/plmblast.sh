@@ -29,22 +29,23 @@ if [[ ${SEQ_COUNT} = "0" ]] ; then
       fi
 fi
 source ${BIOPROGS}/dependencies/anaconda3/etc/profile.d/conda.sh
-conda activate plmblast
+conda activate plm_blast
+
+set -e
+export HF_HOME=$PLMBLASTPATH/cache
 
 echo "#Calculating embedding for query sequence." >> ../results/process.log
 # calculate index
-python3.9 $PLMBLASTPATH/scripts/makeindex.py ../results/${JOBID}.fas ../results/${JOBID}.csv
+#python $PLMBLASTPATH/scripts/makeindex.py ../results/${JOBID}.fas ../results/${JOBID}.csv
 
 # calculate query embedding
-python3.9 $PLMBLASTPATH/embeddings.py \
+python3.10 $PLMBLASTPATH/embeddings.py start\
           ../results/${JOBID}.fas \
           ../results/${JOBID}.pt
 echo "done" >> ../results/process.log
 
-set -e
-export MKL_NUM_THREADS=1
-export NUMEXPR_NUM_THREADS=1
-export OMP_NUM_THREADS=1
+
+
 
 echo "#Searching %plmblastdb.content." >> ../results/process.log
 
@@ -55,32 +56,41 @@ else
   adjusted_span="%span.content"
 fi
 
-python3.9 $PLMBLASTPATH/scripts/run_plm_blast.py %PLMBLAST/%plmblastdb.content \
+if [[ "%plm_aln_mode.content" -eq "glob"  ]]
+then
+  aln_mode="--global_aln"
+else
+  aln_mode=""
+fi
+
+python3.10 $PLMBLASTPATH/scripts/plmblast.py %PLMBLAST/%plmblastdb.content \
                                              ../results/${JOBID} \
                                              ../results/${JOBID}.hits.csv \
-                                             -cosine_percentile_cutoff %cosine_percentile_cutoff.content \
+                                             -cpc %cosine_percentile_cutoff.content \
                                              -alignment_cutoff %alignment_cutoff.content \
-                                             -max_targets %desc.content \
                                              -workers %THREADS \
                                              -sigma_factor %sigma_factor.content \
-                                             -use_chunks \
                                              -win %win_len.content \
                                              -span ${adjusted_span} \
-                                             --global_aln %plm_aln_mode.content
+                                             -gap_ext %plm_gap_ext.content \
+                                             -bfactor %bfactor.content \
+                                             ${aln_mode}
 
 echo "done" >> ../results/process.log
+
+#-max_targets %desc.content \
 
 echo "#Preparing output." >> ../results/process.log
 
 if [[ %merge_hits.content = "1" ]] ; then
 # pLM-BLAST tends to yield rather short hits therefore it is beneficial to merge those associated
 # with a single database sequence; additionally, a more strict score cut-off is used
-  python3.9 $PLMBLASTPATH/scripts/merge.py ../results/${JOBID}.hits.csv \
-                                         ../results/${JOBID}.hits_merged.csv
+  python3.10 $PLMBLASTPATH/scripts/merge.py ../results/${JOBID}.hits.csv \
+                                         ../results/${JOBID}.hits_merged.csv -max_hits %desc.content
   mv ../results/${JOBID}.hits_merged.csv ../results/${JOBID}.hits.csv
 fi
 
-python3.9 $PLMBLASTPATH/scripts/csv2nice.py ../results/${JOBID}.hits.csv > ../results/${JOBID}.hits.txt
+python3.10 $PLMBLASTPATH/scripts/csv2nice.py ../results/${JOBID}.hits.csv > ../results/${JOBID}.hits.txt
 
 plmblast_csv_to_json.py ../results/${JOBID}.hits.csv ../results/results.json
 
