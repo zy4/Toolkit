@@ -28,26 +28,25 @@ export default {
                     },
                     {
                         title: 'Cosine similarity percentile cut-off',
-                        content: `A pre-screening procedure is used to improve the performance of the database search. 
-                        First, the database of partially flattened embeddings is searched using the partially flattened 
-                        query embedding and the cosine similarity metric, and then the actual pLM-BLAST comparisons are 
-                        performed only for matches above the user-specified cut-off. The cut-off is expressed as the n-th 
-                        percentile of all cosine similarity scores. The higher the pre-screening cut-off, the faster and 
-                        less sensitive the search will be, and vice versa.`,
+                        content: `A pre-screening procedure can be used to improve the performance of the database search.
+                        First, the database of flattened embeddings is searched using the flattened query embedding and the
+                        cosine similarity metric, and then the actual pLM-BLAST comparisons are performed only for matches
+                        above the user-specified cut-off. The cut-off is expressed as the n-th percentile of all cosine
+                        similarity scores. The higher the pre-screening cut-off, the faster and less sensitive the search
+                        will be, and vice versa.`,
                     },
                     {
                         title: 'Alignment score cut-off',
-                        content: `Each alignment is assigned a score from 0 to 1. The alignment cut-off defines the 
-                        minimum score for reporting a match. The higher the cut-off, the more stringent the search. 
-                        Also note that only matches that have passed the pre-filtering step (see "Cosine Similarity 
-                        Percentile Cutoff") are considered.
-`,
+                        content: `Each query-target alignment is assigned a score from 0 to 1. The alignment cut-off defines
+                        the minimum score for reporting a match. The higher the cut-off, the more stringent the search. Also
+                        note that only matches that have passed the pre-filtering step (see "Cosine Similarity Percentile Cutoff")
+                        are considered.`,
                     },
                     {
                         title: 'Window length',
-                        content: `A moving average is used to detect local alignments within the full paths determined 
-                        by the traceback procedure. Increasing the window size results in longer local alignments, but 
-                        may decrease sensitivity. This parameter is not used in Global Alignment mode.`,
+                        content: `A moving average is used to detect local alignments within the paths determined by the traceback
+                        procedure. Increasing the window size results in longer local alignments, but may decrease sensitivity.
+                        This parameter is not used in Global Alignment mode.`,
                     },
                     {
                         title: 'Merge hits',
@@ -58,7 +57,8 @@ export default {
                     },
                     {
                         title: 'Max target hits',
-                        content: `This parameter controls how many matches are displayed in the results.`,
+                        content: `This parameter controls how many matches are displayed in the results. This filter is
+                        applied after the alignment score cutoff filter.`,
                     },
                     {
                         title: 'Alignment mode',
@@ -66,7 +66,8 @@ export default {
                     },
                     {
                         title: 'Minimal hit span',
-                        content: `Specifies the minimum length of matches returned.`,
+                        content: `Specifies the minimum length of matches returned. The minimum match length cannot be
+                        less than the window length.`,
                     },
                     {
                         title: 'Sigma factor',
@@ -75,6 +76,16 @@ export default {
                         the algorithm stricter or more permissive, respectively. This parameter is not used in Global 
                         Alignment mode.`,
                     },
+                    {
+                        title: 'Bfactor',
+                        content: `Using a Bfactor value greater than 1 will reduce the initial number of alignments by
+                        ignoring alignments that are very close to each other, thus increasing the search speed. This
+                        parameter is not used in Global Alignment mode.`,
+		    },
+                    {
+                        title: 'Gap extension penalty',
+                        content: 'The penalty for extending a gap.',
+	            },
 
                 ],
                 references: `<p>pLM-BLAST – distant homology detection based on direct comparison of sequence 

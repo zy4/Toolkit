@@ -90,13 +90,17 @@ class ParamAccess @Inject() (tel: TEL) {
 
     // pLM-BLAST
     case "PLMBLASTDB"               => select("plmblastdb", default = Some("ECOD30"))
-    case "COSINE_PERCENTILE_CUTOFF" => select("cosine_percentile_cutoff", default = Some("95"))
+    case "COSINE_PERCENTILE_CUTOFF" => select("cosine_percentile_cutoff", default = Some("70"))
     case "ALIGNMENT_CUTOFF"         => select("alignment_cutoff", default = Some("0.30"))
-    case "WIN_LEN"                  => select("win_len", default = Some("10"))
+    case "WIN_LEN"                  => select("win_len", default = Some("15"))
     case "MERGE_HITS" => select("merge_hits", default = Some("1"))
-    case "PLM_ALN_MODE" => select("plm_aln_mode", default = Some("False"))
+    case "PLM_ALN_MODE" => select("plm_aln_mode", default = Some("loc"))
     case "SPAN" => select("span", default = Some("25"))
     case "SIGMA_FACTOR" => select("sigma_factor", default = Some("2"))
+    case "BFACTOR" => select("bfactor", default = Some("2"))
+    case "PLM_GAP_EXT" => select("plm_gap_ext", default = Some("0.5"))
+
+
 
     // HHpred
     case "TWOTEXTALIGNMENT" =>
