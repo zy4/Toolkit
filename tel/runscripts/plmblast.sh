@@ -56,7 +56,7 @@ else
   adjusted_span="%span.content"
 fi
 
-if [[ "%plm_aln_mode.content" -eq "glob"  ]]
+if [[ "%plm_aln_mode.content" == "glob"  ]]
 then
   aln_mode="--global_aln"
 else
