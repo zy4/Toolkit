@@ -84,8 +84,8 @@ export default {
 		    },
                     {
                         title: 'Gap extension penalty',
-                        content: 'Setting this parameter to a value greater than 0 penalizes the introduction of gaps
-			in the generated alignments.',
+                        content: `Setting this parameter to a value greater than 0 penalizes the introduction of gaps
+			in the generated alignments.`,
 	            },
 
                 ],
