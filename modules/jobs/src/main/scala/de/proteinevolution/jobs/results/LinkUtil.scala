@@ -49,7 +49,7 @@ object LinkUtil {
     "http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?SUBMIT=y&db=structure&orig_db=structure&term="
   private val ncbiProteinBaseLink = "https://www.ncbi.nlm.nih.gov/protein/"
   private val scopBaseLink        = "http://scop.berkeley.edu/sid="
-  private val pfamBaseLink        = "http://pfam.xfam.org/family/"
+  private val pfamBaseLink        = "https://www.ebi.ac.uk/interpro/entry/pfam/"
   private val cddBaseLink         = "http://www.ncbi.nlm.nih.gov/Structure/cdd/cddsrv.cgi?uid="
   private val uniprotBaseLink     = "http://www.uniprot.org/uniprot/"
   private val unirefBaseLink      = "http://www.uniprot.org/uniref/"
@@ -64,7 +64,7 @@ object LinkUtil {
 
   def getSingleLink(id: String): String = {
     val db     = identifyDatabase(id)
-    val idPfam = id.replaceAll("am.*$||..*", "")
+    val idPfam = id.split("\\.").head
     val idPdb  = id.replaceAll("_.*$", "")
     db match {
       case "scop"    => val idScop = id.slice(5, 12); generateLink(scopBaseLink, idScop, id)
@@ -73,7 +73,7 @@ object LinkUtil {
       case "ncbicd"  => generateLink(cddBaseLink, id, id)
       case "cogkog"  => generateLink(cddBaseLink, id, id)
       case "tigr"    => generateLink(cddBaseLink, id, id)
-      case "pfam"    => generateLink(pfamBaseLink, idPfam + "#tabview=tab0", id)
+      case "pfam"    => generateLink(pfamBaseLink, idPfam, id)
       case "ncbi"    => generateLink(ncbiProteinBaseLink, id, id)
       case "uniprot" => generateLink(uniprotBaseLink, id, id)
       case "smart"   => generateLink(smartBaseLink, id, id)
@@ -88,7 +88,7 @@ object LinkUtil {
   }
 
   def getSingleLinkDB(db: String, id: String): String = {
-    val idPfam      = id.replaceAll("am.*$||..*", "")
+    val idPfam      = id.split("\\.").head
     val idPdb       = id.replaceAll("_.*$", "")
     val idAlphaFold = id.replaceAll("-.*$", "")
 
@@ -98,7 +98,7 @@ object LinkUtil {
       case pdbNameReg(_)                   => generateLink(pdbBaseLink, idPdb, id)
       case uniprotNameReg(_)               => generateLink(uniprotBaseLink, id, id)
       case unirefNameReg(_)                => generateLink(unirefBaseLink, id, id)
-      case pfamNameReg(_)                  => generateLink(pfamBaseLink, idPfam + "#tabview=tab0", id)
+      case pfamNameReg(_)                  => generateLink(pfamBaseLink, idPfam, id)
       case alphafolddbNameReg(_)           => generateLink(alphafoldBaseLink, idAlphaFold, id)
       case _                               => id
     }
