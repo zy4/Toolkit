@@ -58,7 +58,7 @@ case class Job(
       "jobID"        -> jobID.asJson,
       "parentID"     -> parentID.asJson,
       "status"       -> status.asJson,
-      "foreign"      -> (!ownerID.equals(user.userID)).asJson,
+      "foreign"      -> !ownerID.equals(user.userID).asJson,
       "watched"      -> watchList.contains(user.userID).asJson,
       "isPublic"     -> isPublic.asJson,
       "code"         -> toolObj.code.asJson,
