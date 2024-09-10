@@ -109,7 +109,7 @@ export default [
         HHpred: profile HMM database for a new version of the
         <a href="https://www.ncbi.nlm.nih.gov/Structure/cdd/cdd.shtml" target="_blank">
         NCBI Conserved Domains Database</a>, version 3.18, is now online. It is also available for download at our
-         <a href="ftp://ftp.tuebingen.mpg.de/pub/protevo/toolkit/databases/hhsuite_dbs/" target="_blank">
+         <a href="http://ftp.tuebingen.mpg.de/ebio/protevo/toolkit/databases/hhsuite_dbs/" target="_blank">
          FTP site</a>.
         </p>`,
     },
@@ -133,7 +133,7 @@ export default [
         HHpred: profile HMM database for a new version of the
         <a href="https://www.ncbi.nlm.nih.gov/Structure/cdd/cdd.shtml" target="_blank">
         NCBI Conserved Domains database</a>, version 3.17, is now online. It is also available for download at our
-         <a href="ftp://ftp.tuebingen.mpg.de/pub/protevo/toolkit/databases/hhsuite_dbs/" target="_blank">
+         <a href="http://ftp.tuebingen.mpg.de/ebio/protevo/toolkit/databases/hhsuite_dbs/" target="_blank">
          FTP site</a>.
         </p>`,
     },
@@ -143,7 +143,7 @@ export default [
         HHpred: profile HMM database for a new version of the
         <a href="http://prodata.swmed.edu/ecod/" target="_blank"> ECOD_F70 database</a>, version 20200221 (develop265),
         is now online. It is also available for download at our
-         <a href="ftp://ftp.tuebingen.mpg.de/pub/protevo/toolkit/databases/hhsuite_dbs/" target="_blank">
+         <a href="http://ftp.tuebingen.mpg.de/ebio/protevo/toolkit/databases/hhsuite_dbs/" target="_blank">
          FTP site</a>.
         </p>`,
     },
@@ -160,7 +160,7 @@ export default [
         date: '2020-02-06',
         html: ` <p>
         Pre-formatted nr, nr90, nr70, nr50, and nr30 BLAST databases are now available for download at our
-         <a href="ftp://ftp.tuebingen.mpg.de/pub/protevo/toolkit/databases/blast/" target="_blank">
+         <a href="http://ftp.tuebingen.mpg.de/ebio/protevo/toolkit/databases/blast/" target="_blank">
          FTP site</a>.
         </p>`,
     },
