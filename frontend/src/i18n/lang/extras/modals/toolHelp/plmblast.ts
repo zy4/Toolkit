@@ -10,8 +10,8 @@ export default {
                 within the MPI Bioinformatics Toolkit but can be also used as a standalone package, which is available 
                 at <a href = https://github.com/labstructbioinf/pLM-BLAST target="_blank" rel="noopener">
                 https://github.com/labstructbioinf/pLM-BLAST. </a> Pre-computer databases can be downloaded from 
-                <a href = http://ftp.tuebingen.mpg.de/pub/protevo/toolkit/databases/plmblast_dbs target="_blank" rel="noopener">
-                 http://ftp.tuebingen.mpg.de/pub/protevo/toolkit/databases/plmblast_dbs</a>.</p>`,
+                <a href = http://ftp.tuebingen.mpg.de/ebio/protevo/toolkit/databases/plmblast_dbs target="_blank" rel="noopener">
+                 http://ftp.tuebingen.mpg.de/ebio/protevo/toolkit/databases/plmblast_dbs</a>.</p>`,
                 parameters: [
                     {
                         title: 'Input',
