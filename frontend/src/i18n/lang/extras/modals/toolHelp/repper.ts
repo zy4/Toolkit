@@ -16,7 +16,7 @@ export default {
         <p>Clicking on a colored line on the output graph provides the complete FT spectrum for the sequence fragment
             defined by the line (the fragment may include closely neighbored lines as well). Alternatively, an arbitrary
             sequence range may be given (in the boxes under the output graph) in order to get a FT spectrum of this
-            particular sequence fragment. <a href = ftp://ftp.tuebingen.mpg.de/pub/protevo/FTwin target="_blank" rel="noopener">Download</a></p>
+            particular sequence fragment. <a href = http://ftp.tuebingen.mpg.de/ebio/protevo/FTwin target="_blank" rel="noopener">Download</a></p>
         <h5><b>REPwin</b></h5>
         <p>REPWin compares a protein sequence with itself within a sliding window of choosable length W. For each
             window starting position i and periodicity p it calculates</p>
@@ -26,12 +26,12 @@ export default {
             dividing through the standard deviation of S(i,p) for nonperiodic sequences. The final score value for each
             residue number i and periodicity p is the maximum over all windows containing residue i.</p>
         <p>Clicking on a colored line on the output graph displays the corresponding alignment that shows the internal
-            homology. <a href = "ftp://ftp.tuebingen.mpg.de/pub/protevo/REPwin/" target="_blank" rel="noopener">Download</a></p>
+            homology. <a href = "http://ftp.tuebingen.mpg.de/ebio/protevo/REPwin/" target="_blank" rel="noopener">Download</a></p>
         <h5><b>COILS</b></h5>
         <p>COILS is a program that compares a sequence to a database of known parallel two-stranded coiled-coils and
             derives a similarity score. By comparing this score to the distribution of scores in globular and
             coiled-coil proteins, the program then calculates the probability that the sequence will adopt a
-            coiled-coil conformation. COILS is described in <a href = https://www.ncbi.nlm.nih.gov/pubmed/2031185?dopt=Abstract target="_blank" rel="noopener">Lupas, Science 252: 1162-1164 (1991)</a> and Lupas, Meth. Enzymology 266: 513-525 (1996). It is based on a prediction protocol proposed by <a href = https://www.ncbi.nlm.nih.gov/pubmed/7165792?dopt=Abstract>Parry, Biosci. Rep. 2: 1017-1024 (1982)</a>. You can also <a href = ftp://ftp.tuebingen.mpg.de/pub/protevo/COILS target="_blank" rel="noopener">download</a> the software.</p>
+            coiled-coil conformation. COILS is described in <a href = https://www.ncbi.nlm.nih.gov/pubmed/2031185?dopt=Abstract target="_blank" rel="noopener">Lupas, Science 252: 1162-1164 (1991)</a> and Lupas, Meth. Enzymology 266: 513-525 (1996). It is based on a prediction protocol proposed by <a href = https://www.ncbi.nlm.nih.gov/pubmed/7165792?dopt=Abstract>Parry, Biosci. Rep. 2: 1017-1024 (1982)</a>. You can also <a href = http://ftp.tuebingen.mpg.de/ebio/protevo/COILS target="_blank" rel="noopener">download</a> the software.</p>
         <h5><b>PSIPRED</b></h5>
         <p>PSIPRED predicts the secondary structure as described in <a href = https://www.ncbi.nlm.nih.gov/pubmed/10493868?dopt=Abstract target="_blank" rel="noopener">Jones, J.Mol.Biol. 292:195-202 (1999)</a>.</p>`,
                 parameters: [
