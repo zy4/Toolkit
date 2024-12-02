@@ -81,4 +81,4 @@ jobs:
           eslint_dir: ./frontend/src
           eslint_extensions: ts,vue
           prettier: true
-          prettier_dir: ./frontend/src
+          prettier_dir: ./frontend

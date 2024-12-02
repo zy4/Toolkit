@@ -77,7 +77,6 @@ export interface PLMBLASTAlignmentItem extends SearchAlignmentItem {
     matchLen: number;
 }
 
-
 export interface PSIBLASTAlignmentItem extends SearchAlignmentItem {
     fastaLink: string;
     eval: number;
