@@ -23,7 +23,7 @@
     "intersection-observer-polyfill": "^0.1.0",
     "js-logger": "^1.6.1",
     "lodash-es": "^4.17.21",
-    "luxon": "^3.1.0",
+    "luxon": "^3.2.1",
     "ngl": "^2.0.1",
     "pinia": "^2.0.23",
     "tidytree": "https://github.com/proteinevolution/TidyTree.git",
