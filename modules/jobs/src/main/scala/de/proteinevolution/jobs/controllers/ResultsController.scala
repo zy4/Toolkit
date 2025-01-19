@@ -71,8 +71,9 @@ final class ResultsController @Inject() (
             // access allowed to job
             (for {
               json <- EitherT.liftF(resultFiles.getResults(jobID))
-              r <- EitherT
-                .fromEither[Future](json.hcursor.downField(resultField.getOrElse("alignment")).as[AlignmentResult])
+              r <- EitherT.fromEither[Future](
+                json.hcursor.downField(resultField.getOrElse("alignment")).as[AlignmentResult]
+              )
             } yield r).value.map {
               case Right(r) =>
                 val l = r.alignment.length
