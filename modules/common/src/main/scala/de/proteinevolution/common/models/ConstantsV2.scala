@@ -57,10 +57,10 @@ class ConstantsV2 @Inject() (config: Configuration) {
 
   // Job deletion settings
   /** Sweeps at this time after server start */
-  final val jobDeletionDelay: FiniteDuration = 10 minutes
+  final val jobDeletionDelay: FiniteDuration = 10.minutes
 
   /** Sweeps in this interval */
-  final val jobDeletionInterval: FiniteDuration = 3 hours
+  final val jobDeletionInterval: FiniteDuration = 3.hours
 
   /** all jobs of registered users that are older than the given number are permanently deleted everywhere */
   final val jobDeletionRegistered: Int = 90
@@ -73,10 +73,10 @@ class ConstantsV2 @Inject() (config: Configuration) {
 
   // User Deletion settings
   /** Sweeps at this time after server start */
-  final val userDeletionDelay: FiniteDuration = 70 minutes
+  final val userDeletionDelay: FiniteDuration = 70.minutes
 
   /** Sweeps in this interval */
-  final val userDeletionInterval: FiniteDuration = 3 hours
+  final val userDeletionInterval: FiniteDuration = 3.hours
 
   /** Sending an eMail to the user this many days before the deletion */
   final val userDeletionWarning: Int = 14 // days
@@ -89,7 +89,7 @@ class ConstantsV2 @Inject() (config: Configuration) {
 
   // qstat long polling in order to detect zombie jobs, not used for cluster load calc anymore
   /** Interval of the qstat requests */
-  final val pollingInterval: FiniteDuration = 5 minutes
+  final val pollingInterval: FiniteDuration = 5.minutes
 
   /** The marker for 100% load capacity */
   final val loadPercentageMarker: Int = 32 // Jobs
