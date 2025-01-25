@@ -63,8 +63,10 @@ class SubmissionController @Inject() (
             case None => BadRequest
             case Some(obj) =>
               if (obj.contains("isPublic")) {
-                jobActorAccess
-                  .sendToJobActor(jobID, SetJobPublic(jobID, obj("isPublic").get.asBoolean.getOrElse(false)))
+                jobActorAccess.sendToJobActor(
+                  jobID,
+                  SetJobPublic(jobID, obj("isPublic").get.asBoolean.getOrElse(false))
+                )
               }
               Ok
           }
